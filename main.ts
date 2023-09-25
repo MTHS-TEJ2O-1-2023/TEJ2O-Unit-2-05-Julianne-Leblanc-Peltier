@@ -1,8 +1,16 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2023 MTHS All rights reserved
  *
- * Created by: Mr. Coxall
- * Created on: Sep 2020
- * This program ...
+ * Created by: Julianne Leblanc-Peltier
+ * Created on: Sep 2023
+ * This program displays the current temperature on a MicroBit
 */
 
-basic.showString('Hello, World!')
+basic.clearScreen()
+basic.pause(1000)
+
+input.onButtonPressed(Button.A, function () {
+    let temperature = input.temperature()
+    let temperatureKelvin = (temperature + 273)
+    basic.showString("The temperature is" + temperatureKelvin)
+    basic.showString("K.")
+})
