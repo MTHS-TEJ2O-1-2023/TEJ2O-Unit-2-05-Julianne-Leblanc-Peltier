@@ -4,7 +4,8 @@
  * Created on: Sep 2023
  * This program displays the current temperature in Kelvin on a MicroBit
 */
-// variable for random number 
+
+// variable for random number
 
 let temperature: number
 let temperatureKelvin: number
@@ -13,13 +14,13 @@ basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
-  // get the temperature in Kelvin 
-
+  // input
   temperature = input.temperature()
+
+  // process
   temperatureKelvin = (temperature + 273.15)
   temperatureKelvin = Math.round(temperatureKelvin)
 
-  // output answer 
-
+  // output
   basic.showString('The temperature is: ' + temperatureKelvin.toString() + 'K.')
 })
