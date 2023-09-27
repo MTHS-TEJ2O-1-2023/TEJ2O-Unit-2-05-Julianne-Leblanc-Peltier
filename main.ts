@@ -2,15 +2,25 @@
  *
  * Created by: Julianne Leblanc-Peltier
  * Created on: Sep 2023
- * This program displays the current temperature on a MicroBit
+ * This program displays the current temperature in Kelvin on a MicroBit
 */
 
+// variable for random number
+
+let temperature: number
+let temperatureKelvin: number
+
 basic.clearScreen()
-basic.pause(1000)
+basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
-    let temperature = input.temperature()
-    let temperatureKelvin = (temperature + 273)
-    basic.showString("The temperature is" + temperatureKelvin)
-    basic.showString("K.")
+  // input
+  temperature = input.temperature()
+
+  // process
+  temperatureKelvin = (temperature + 273.15)
+  temperatureKelvin = Math.round(temperatureKelvin)
+
+  // output
+  basic.showString('The temperature is: ' + temperatureKelvin.toString() + 'K.')
 })
